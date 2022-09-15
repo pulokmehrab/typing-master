@@ -59,6 +59,7 @@ const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
     return true;
   }
+  errorCount++;
   return false;
 };
 
@@ -92,7 +93,7 @@ const gameOver = () => {
 
   // restart everything
   startTime = null;
-  errorCount = 0;
+  errorCount=0;
   userText = "";
   display.classList.add("inactive");
 };
@@ -143,4 +144,3 @@ const timer=document.getElementById("show-time");
   timer.innerHTML= `${startTime ?  parseInt(timeSpent): 0} seconds`;
 
 }, 1000);
-// parseFloat($('#amount').val()).toFixed(2)
