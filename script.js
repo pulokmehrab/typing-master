@@ -1,3 +1,4 @@
+
 const display = document.getElementById("display");
 const question = document.getElementById("question");
 const startBtn = document.getElementById("starts");
@@ -79,10 +80,12 @@ const gameOver = () => {
   display.classList.add("inactive");
   // show result
   resultModal.innerHTML += `
+  <div class ="">
     <h1>Finished!</h1>
-    <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
-    <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>You took: <span class="bold">${parseInt(timeTaken)}</span> seconds</p>
+    <p>You made <span class="bold red" >${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
+    </div>
   `;
 
   addHistory(questionText, timeTaken, errorCount);
@@ -137,7 +140,7 @@ setInterval(() => {
   const timeSpent = (currentTime - startTime) / 1000;
 
 const timer=document.getElementById("show-time");
-  timer.innerHTML= `${startTime ?  timeSpent: 0} seconds`;
+  timer.innerHTML= `${startTime ?  parseInt(timeSpent): 0} seconds`;
 
 }, 1000);
-// parseFloat($('#amount').val()).toFixed(2);
+// parseFloat($('#amount').val()).toFixed(2)
